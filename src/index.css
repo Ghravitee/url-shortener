@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --Cyan: hsl(180, 66%, 49%);
+  --Dark-Violet: hsl(258, 27%, 26%);
+
+  /* secondary */
+  --Red: hsl(0, 87%, 67%);
+
+  /* Neutral */
+  --Gray: hsl(0, 0%, 75%);
+  --Gray: hsl(0, 0%, 75%);
+  --Grayish-Violet: hsl(257, 7%, 63%);
+  --Grayish-Violet-Diluted: hsl(240, 2%, 91%);
+  --Very-Dark-Blue: hsl(255, 11%, 22%);
+  --Very-Dark-Violet: hsl(260, 8%, 14%);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --color-Cyan: hsl(180, 66%, 49%);
+  --color-Dark-Violet: hsl(257, 27%, 26%);
+
+  /* secondary */
+  --color-Red: hsl(0, 87%, 67%);
+
+  /* Neutral */
+  --color-Gray: hsl(0, 0%, 75%);
+  --color-Grayish-Violet: hsl(257, 7%, 63%);
+  --color-Grayish-Violet-Diluted: hsl(240, 2%, 91%);
+  --color-Very-Dark-Blue: hsl(255, 11%, 22%);
+  --color-Very-Dark-Violet: hsl(260, 8%, 14%);
+}
+
+.shortener-background {
+  background-image: url("../src/images/bg-shorten-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-color: var(--Dark-Violet);
+}
+
+.cta-background {
+  background-image: url("../src/images/bg-boost-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--Dark-Violet);
+}
+
+@media (min-width: 1024px) {
+  .shortener-background {
+    background-image: url("../src/images/bg-shorten-desktop.svg");
+  }
+
+  .cta-background {
+    background-image: url("../src/images/bg-boost-desktop.svg");
+  }
+}
