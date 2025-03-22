@@ -18,8 +18,8 @@ const Shortener = () => {
     try {
       const response = await fetch("https://cleanuri.com/api/v1/shorten", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ url: input }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: input }),
       });
 
       if (!response.ok) throw new Error("Failed to shorten the link");
