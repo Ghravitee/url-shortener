@@ -21,6 +21,7 @@ const Shortener = () => {
     setError("");
 
     try {
+      // Send the link to the backend
       const response = await fetch(
         "https://url-shortener-jhqd.onrender.com/shorten-url",
         {
