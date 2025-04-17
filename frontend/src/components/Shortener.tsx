@@ -12,6 +12,7 @@ const Shortener = () => {
   const shortenLink = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) {
+      // Prevent empty links
       setError("Please add a link");
       return;
     }
