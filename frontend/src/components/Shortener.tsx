@@ -21,11 +21,14 @@ const Shortener = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/shorten-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: input }),
-      });
+      const response = await fetch(
+        "https://url-shortener-jhqd.onrender.com/shorten-url",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: input }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to shorten the link");
 
