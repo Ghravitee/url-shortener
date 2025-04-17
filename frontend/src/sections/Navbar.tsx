@@ -18,17 +18,26 @@ const Navbar = () => {
           </div>
           <ul className="flex items-center space-x-4">
             <li>
-              <a href="#" className="text-Grayish-Violet font-bold text-sm">
+              <a
+                href="#"
+                className="text-Grayish-Violet font-bold text-sm hover:text-Dark-Violet"
+              >
                 Features
               </a>
             </li>
             <li>
-              <a href="#" className="text-Grayish-Violet font-bold text-sm">
+              <a
+                href="#"
+                className="text-Grayish-Violet font-bold text-sm hover:text-Dark-Violet"
+              >
                 Pricing
               </a>
             </li>
             <li>
-              <a href="#" className="text-Grayish-Violet font-bold text-sm">
+              <a
+                href="#"
+                className="text-Grayish-Violet font-bold text-sm hover:text-Dark-Violet"
+              >
                 Resources
               </a>
             </li>
@@ -38,7 +47,7 @@ const Navbar = () => {
           <a href="" className="text-Grayish-Violet font-bold text-sm">
             Login
           </a>
-          <Button content="Sign Up" />
+          <Button content="Sign Up" addon="font-bold hover:opacity-50" />
         </div>
       </nav>
 

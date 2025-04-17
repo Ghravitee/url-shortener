@@ -16,7 +16,7 @@ const Hero = () => {
           </p>
           <Button
             content="Get Started"
-            addon="px-8 py-3 text-lg font-medium mx-auto lg:mx-0"
+            addon="px-8 py-3 text-lg font-medium mx-auto lg:mx-0 hover:opacity-50"
           />
         </div>
 
