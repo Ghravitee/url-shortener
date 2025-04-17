@@ -8,7 +8,7 @@ const PORT = 5000;
 
 app.use(
   cors({
-    origin: "https://url-shortener-orpin-eta.vercel.app/", // 👈 allow your frontend domain
+    origin: "https://url-shortener-orpin-eta.vercel.app", // 👈 allow your frontend domain
   })
 );
 app.use(express.json());
