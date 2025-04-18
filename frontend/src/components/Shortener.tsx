@@ -88,7 +88,7 @@ const Shortener = () => {
             key={index}
             className="flex flex-col md:flex-row md:items-center justify-between bg-white lg:p-4 p-0 rounded-lg"
           >
-            <p className="text-Dark-Violet font-semibold lg:truncate max-w-[60%] px-4 pb-2 pt-4 md:py-0">
+            <p className="text-Dark-Violet font-semibold truncate max-w-[60%] px-4 pb-2 pt-4 md:py-0">
               {original}
             </p>
             <div className="my-4 lg:hidden bg-Gray h-[1px] " />
