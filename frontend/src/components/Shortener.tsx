@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Shortener = () => {
   const [input, setInput] = useState("");
   const [shortenedLinks, setShortenedLinks] = useState<
-    { original: string; short: string }[]
-  >([]);
+    {
+      original: string;
+      short: string;
+    }[]
+  >(() => {
+    const stored = localStorage.getItem("shortenedLinks");
+    return stored ? JSON.parse(stored) : [];
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [hasCopied, setHasCopied] = useState(false);
 
+  // Update localStorage whenever shortenedLinks changes
+  useEffect(() => {
+    localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
+  }, [shortenedLinks]);
+
   const shortenLink = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) {
-      // Prevent empty links
       setError("Please add a link");
       return;
     }
@@ -21,7 +32,6 @@ const Shortener = () => {
     setError("");
 
     try {
-      // Send the link to the backend
       const response = await fetch(
         "https://url-shortener-jhqd.onrender.com/shorten-url",
         {
@@ -34,10 +44,8 @@ const Shortener = () => {
       if (!response.ok) throw new Error("Failed to shorten the link");
 
       const data = await response.json();
-      setShortenedLinks([
-        { original: input, short: data.result_url },
-        ...shortenedLinks,
-      ]);
+      const newLink = { original: input, short: data.result_url };
+      setShortenedLinks([newLink, ...shortenedLinks]);
       setInput("");
     } catch (err) {
       setError("Something went wrong. Please try again.");
@@ -50,9 +58,7 @@ const Shortener = () => {
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
     setHasCopied(true);
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 2000);
+    setTimeout(() => setHasCopied(false), 2000);
   };
 
   return (
@@ -77,11 +83,9 @@ const Shortener = () => {
             {loading ? "Shortening..." : "Shorten it!"}
           </button>
         </form>
-
         {error && <p className="text-Red mt-2 italic">{error}</p>}
       </div>
 
-      {/* Display shortened links */}
       <div className="mt-6 space-y-4 -translate-y-36 lg:-translate-y-40">
         {shortenedLinks.map(({ original, short }, index) => (
           <div
